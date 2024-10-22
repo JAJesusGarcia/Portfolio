@@ -13,39 +13,45 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: 'Proyecto 1',
-      description: 'Descripción breve del proyecto 1',
-      image: '/api/placeholder/400/200',
+      title: 'Proyecto Integrador M1 - Henry',
+      description: 'Java Script',
+      image:
+        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
       url: '#',
     },
     {
       title: 'Proyecto 2',
       description: 'Descripción breve del proyecto 2',
-      image: '/api/placeholder/400/200',
+      image:
+        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
       url: '#',
     },
     {
       title: 'Proyecto 3',
       description: 'Descripción breve del proyecto 3',
-      image: '/api/placeholder/400/200',
+      image:
+        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
       url: '#',
     },
     {
       title: 'Proyecto 3',
       description: 'Descripción breve del proyecto 3',
-      image: '/api/placeholder/400/200',
+      image:
+        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
       url: '#',
     },
     {
       title: 'Proyecto 3',
       description: 'Descripción breve del proyecto 3',
-      image: '/api/placeholder/400/200',
+      image:
+        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
       url: '#',
     },
     {
       title: 'Proyecto 3',
       description: 'Descripción breve del proyecto 3',
-      image: '/api/placeholder/400/200',
+      image:
+        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
       url: '#',
     },
   ];
@@ -67,7 +73,7 @@ const Portfolio = () => {
           <h2 className="text-4xl font-bold text-primary mb-8">Sobre Mí</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <img
-              src="/api/placeholder/400/400"
+              src="https://scontent-eze1-1.xx.fbcdn.net/v/t39.30808-6/304970106_2285404571615935_6407519061097785495_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=ss--6N68wGkQ7kNvgF3dWGN&_nc_zt=23&_nc_ht=scontent-eze1-1.xx&_nc_gid=ALBgcKTZKglHSi4mea4Mi0W&oh=00_AYA680cyN74d4OY2zlo5OTLnmBjFbDvGB7Y3NPsUtoggcw&oe=671DCD36"
               alt="Profile"
               className="rounded-full w-64 h-64 mx-auto object-cover"
             />
