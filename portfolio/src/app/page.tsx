@@ -1,8 +1,26 @@
 'use client';
 
-import Navbar from '@/components/Navbar/Navbar';
-import { Github, Linkedin, Mail, MapPin, Send } from 'lucide-react';
 import React, { useState } from 'react';
+import { Mail, Linkedin, Github, Send, MapPin } from 'lucide-react';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import DynamicMap from '../components/DynamicMap/DynamicMap';
+import Navbar from '@/components/Navbar/Navbar';
+
+const customIcon = L.icon({
+  iconRetinaUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  iconSize: [25, 41], // Tamaño del icono
+  iconAnchor: [12, 41], // Punto del icono que estará en la posición del marcador
+  popupAnchor: [1, -34], // Posición del popup en relación al icono
+  shadowSize: [41, 41], // Tamaño de la sombra
+});
+
+export { customIcon };
 
 const Portfolio = () => {
   const [formData, setFormData] = useState({
@@ -13,53 +31,36 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: 'Proyecto Integrador M1 - Henry',
-      description: 'Java Script',
-      image:
-        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
+      title: 'Proyecto 1',
+      description: 'Descripción breve del proyecto 1',
+      image: '/api/placeholder/400/200',
       url: '#',
     },
     {
       title: 'Proyecto 2',
       description: 'Descripción breve del proyecto 2',
-      image:
-        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
+      image: '/api/placeholder/400/200',
       url: '#',
     },
     {
       title: 'Proyecto 3',
       description: 'Descripción breve del proyecto 3',
-      image:
-        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
-      url: '#',
-    },
-    {
-      title: 'Proyecto 3',
-      description: 'Descripción breve del proyecto 3',
-      image:
-        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
-      url: '#',
-    },
-    {
-      title: 'Proyecto 3',
-      description: 'Descripción breve del proyecto 3',
-      image:
-        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
-      url: '#',
-    },
-    {
-      title: 'Proyecto 3',
-      description: 'Descripción breve del proyecto 3',
-      image:
-        'https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010129.jpg?t=st=1729629640~exp=1729633240~hmac=4fb36ac98ee4e0b0973318671044b6e05c6837762d92b0160c0e4127bafb8749&w=826',
+      image: '/api/placeholder/400/200',
       url: '#',
     },
   ];
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log(formData);
+  const handleChange = (e: React.ChangeEvent<HTMLElement>) => {
+    const target = e.target as HTMLInputElement | HTMLTextAreaElement;
+    setFormData({
+      ...formData,
+      [target.name]: target.value,
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Evita el envío por defecto del formulario
+    // Aquí puedes añadir la lógica para enviar los datos o realizar otras acciones
   };
 
   return (
@@ -140,33 +141,30 @@ const Portfolio = () => {
                 <div>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Nombre"
                     className="w-full p-3 rounded bg-quaternary text-quinary"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email"
                     className="w-full p-3 rounded bg-quaternary text-quinary"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
                   <textarea
+                    name="message"
                     placeholder="Mensaje"
                     className="w-full p-3 rounded bg-quaternary text-quinary"
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={handleChange}
                   />
                 </div>
                 <button
@@ -186,10 +184,7 @@ const Portfolio = () => {
                   <MapPin className="text-primary" />
                   <span>Rosario, Santa Fe, Argentina</span>
                 </div>
-                {/* Aquí iría el componente del mapa */}
-                <div className="w-full h-64 bg-quaternary rounded">
-                  {/* Placeholder para el mapa */}
-                </div>
+                <DynamicMap />
               </div>
 
               <h3 className="text-2xl text-primary mb-4">Redes Sociales</h3>
