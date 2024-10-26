@@ -1,7 +1,15 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    domains: ['scontent-eze1-1.xx.fbcdn.net'],
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(png|jpg|gif|svg)$/i,
+      type: 'asset/resource',
+    });
+    return config;
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

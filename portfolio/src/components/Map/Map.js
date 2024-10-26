@@ -1,37 +1,32 @@
 'use client';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
+import React, { useEffect } from 'react';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const Map = () => {
-  const [isClient, setIsClient] = useState(false);
-
   useEffect(() => {
-    setIsClient(true); // Indica que estamos en el cliente
-
-    // Desmontar el mapa si ya existe para evitar reinicializaciones
-    return () => {
-      const mapContainer = document.getElementById('map');
-      if (mapContainer && mapContainer._leaflet_id) {
-        mapContainer._leaflet_id = null;
-      }
-    };
+    delete L.Icon.Default.prototype._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: '/images/marker-icon-2x.png',
+      iconUrl: '/images/marker-icon.png',
+      shadowUrl: '/images/marker-shadow.png',
+    });
   }, []);
-
-  if (!isClient) return null; // Evita renderizar en el servidor
-
-  const position = [-32.9595, -60.6393];
 
   return (
     <MapContainer
-      id="map"
-      center={position}
+      center={[-32.9442, -60.6505]}
       zoom={13}
-      style={{ height: '100%', width: '100%' }}
+      style={{ height: '400px', width: '100%' }}
     >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Marker position={position}>
-        <Popup>Tu ubicación aquí.</Popup>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      <Marker position={[-32.9442, -60.6505]}>
+        <Popup>Rosario, Santa Fe, Argentina</Popup>
       </Marker>
     </MapContainer>
   );
