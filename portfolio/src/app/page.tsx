@@ -3,24 +3,24 @@
 import React, { useState } from 'react';
 import { Mail, Linkedin, Github, Send, MapPin } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-import DynamicMap from '../components/DynamicMap/DynamicMap';
+import DynamicMap from '../components/Map/DynamicMap';
 import Navbar from '@/components/Navbar/Navbar';
+import { projects } from '@/data/projects';
 
-const customIcon = L.icon({
-  iconRetinaUrl:
-    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl:
-    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl:
-    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-  iconSize: [25, 41], // Tamaño del icono
-  iconAnchor: [12, 41], // Punto del icono que estará en la posición del marcador
-  popupAnchor: [1, -34], // Posición del popup en relación al icono
-  shadowSize: [41, 41], // Tamaño de la sombra
-});
+// const customIcon = L.icon({
+//   iconRetinaUrl:
+//     'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+//   iconUrl:
+//     'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+//   shadowUrl:
+//     'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+//   iconSize: [25, 41], // Tamaño del icono
+//   iconAnchor: [12, 41], // Punto del icono que estará en la posición del marcador
+//   popupAnchor: [1, -34], // Posición del popup en relación al icono
+//   shadowSize: [41, 41], // Tamaño de la sombra
+// });
 
-export { customIcon };
+// export { customIcon };
 
 const Portfolio = () => {
   const [formData, setFormData] = useState({
@@ -28,27 +28,6 @@ const Portfolio = () => {
     email: '',
     message: '',
   });
-
-  const projects = [
-    {
-      title: 'Proyecto 1',
-      description: 'Descripción breve del proyecto 1',
-      image: '/api/placeholder/400/200',
-      url: '#',
-    },
-    {
-      title: 'Proyecto 2',
-      description: 'Descripción breve del proyecto 2',
-      image: '/api/placeholder/400/200',
-      url: '#',
-    },
-    {
-      title: 'Proyecto 3',
-      description: 'Descripción breve del proyecto 3',
-      image: '/api/placeholder/400/200',
-      url: '#',
-    },
-  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLElement>) => {
     const target = e.target as HTMLInputElement | HTMLTextAreaElement;

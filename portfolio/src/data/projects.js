@@ -1,4 +1,3 @@
-// src/data/projects.js
 export const projects = [
   {
     title: 'Proyecto 1',
@@ -6,5 +5,16 @@ export const projects = [
     image: '/api/placeholder/400/200',
     url: '#',
   },
-  // Más proyectos...
+  {
+    title: 'Proyecto 2',
+    description: 'Descripción breve del proyecto 2',
+    image: '/api/placeholder/400/200',
+    url: '#',
+  },
+  {
+    title: 'Proyecto 3',
+    description: 'Descripción breve del proyecto 3',
+    image: '/api/placeholder/400/200',
+    url: '#',
+  },
 ];
