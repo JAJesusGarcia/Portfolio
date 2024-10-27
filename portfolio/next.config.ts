@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['scontent-eze1-1.xx.fbcdn.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'scontent-eze1-1.xx.fbcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   webpack: (config) => {
     config.module.rules.push({
