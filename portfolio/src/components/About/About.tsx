@@ -5,7 +5,7 @@ const About = () => {
         <h2 className="text-4xl font-bold text-primary mb-8">Sobre Mí</h2>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <img
-            src="/api/placeholder/400/400"
+            src="https://media.licdn.com/dms/image/v2/D4D35AQHSVxhhOqNVFg/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1718220528993?e=1730761200&v=beta&t=iPQQesxcISA9qrIxlxPc8YMEajraOppZHIZ-2JNpGLE"
             alt="Profile"
             className="rounded-full w-64 h-64 mx-auto object-cover"
           />

@@ -4,19 +4,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'scontent-eze1-1.xx.fbcdn.net',
-        port: '',
-        pathname: '/**',
+        hostname: '**',
       },
     ],
   },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.(png|jpg|gif|svg)$/i,
-      type: 'asset/resource',
-    });
-    return config;
-  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
