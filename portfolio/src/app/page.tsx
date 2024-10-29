@@ -10,6 +10,8 @@ import {
   Github,
   Send,
   MapPin,
+  MessageCircle,
+  MessageCircleCode,
 } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import Navbar from '@/components/Navbar/Navbar';
@@ -21,7 +23,7 @@ interface Project {
   url: string;
   githubUrl: string;
   technologies: string[];
-  image: string; // Añadido campo de imagen
+  image: string;
 }
 
 interface FormData {
@@ -104,9 +106,7 @@ const Portfolio = () => {
               {projects.map((project: Project, index: number) => (
                 <div
                   key={index}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl"
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full" // Added flex-col and h-full
                 >
                   <div className="relative aspect-video">
                     <Image
@@ -140,30 +140,44 @@ const Portfolio = () => {
                     )}
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4">{project.description}</p>
-                    <div className="mb-4 flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  <div className="p-6 flex flex-col flex-grow">
+                    {' '}
+                    {/* Added flex-col and flex-grow */}
+                    <div className="flex-grow">
+                      {' '}
+                      {/* Added wrapper div with flex-grow */}
+                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4">
+                        {project.description}
+                      </p>
+                      <div className="mb-4 mt-auto flex flex-wrap gap-2">
+                        {' '}
+                        {/* Added wrapper div with mt-auto */}
+                        {project.technologies.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
-                    >
-                      Ver Proyecto
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    <div className="mt-auto">
+                      {' '}
+                      {/* Added wrapper div with mt-auto */}
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                      >
+                        Ver Proyecto
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -172,7 +186,7 @@ const Portfolio = () => {
         </section>
 
         {/* Sección Contacto */}
-        <section id="contact" className="py-20 bg-secondary">
+        <section id="contact" className="py-20 px-10 bg-secondary">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-primary mb-12">Contacto</h2>
             <div className="grid md:grid-cols-2 gap-12">
@@ -267,6 +281,13 @@ const Portfolio = () => {
                     aria-label="Email"
                   >
                     <Mail size={32} />
+                  </a>
+                  <a
+                    href="mailto:tu@email.com"
+                    className="text-tertiary hover:text-primary transition-colors"
+                    aria-label="Email"
+                  >
+                    <MessageCircleCode size={32} />
                   </a>
                 </div>
               </div>
