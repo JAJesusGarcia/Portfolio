@@ -18,6 +18,7 @@ import { projects } from '@/data/projects';
 import ScrollButton from '@/components/ScrollButton/ScrollButton';
 import './globals.css';
 import Hero from '@/components/Hero/Hero';
+import TechStack from '@/components/TechStack/TechStack';
 
 interface Project {
   title: string;
@@ -123,7 +124,7 @@ const Portfolio = () => {
         <hr className="my-20 mx-auto border-primary" style={{ width: '90%' }} />
 
         {/* Sección Experiencia */}
-        <section id="experience" className="py-20 bg-secondary">
+        <section id="experience" className="py-10 bg-secondary">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-primary mb-16 text-center">
               Mi Trayectoria Profesional
@@ -362,6 +363,10 @@ const Portfolio = () => {
               ))}
             </div>
           </div>
+        </section>
+
+        <section>
+          <TechStack />
         </section>
 
         {/* Sección Contacto */}
