@@ -15,6 +15,9 @@ import {
 import 'leaflet/dist/leaflet.css';
 import Navbar from '@/components/Navbar/Navbar';
 import { projects } from '@/data/projects';
+import ScrollButton from '@/components/ScrollButton/ScrollButton';
+import './globals.css';
+import Hero from '@/components/Hero/Hero';
 
 interface Project {
   title: string;
@@ -83,16 +86,19 @@ const Portfolio = () => {
     <div className="min-h-screen bg-secondary">
       <Navbar />
       <main>
+        <section>
+          <Hero />
+        </section>
         {/* Sección About */}
-        <section id="about" className="py-20 bg-secondary">
+        <section id="about" className="py-10 bg-secondary ">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-primary mb-8">Sobre Mí</h2>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <Image
                 src="https://scontent-eze1-1.xx.fbcdn.net/v/t39.30808-6/397476874_2605561982933524_3092439653296046069_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=mr7-OMXNBWAQ7kNvgGyqvJM&_nc_zt=23&_nc_ht=scontent-eze1-1.xx&_nc_gid=AKOOiL2uxQ2SHVOmY6dOlNW&oh=00_AYBuKjeHtkiApNWutHzWIbskRn_yNvQbJai4JnIdWGCANg&oe=6725EDD9"
                 alt="Perfil"
-                width={256}
-                height={256}
+                width={300}
+                height={300}
                 className="rounded-full mx-auto object-cover"
                 priority
               />
@@ -113,6 +119,8 @@ const Portfolio = () => {
             </div>
           </div>
         </section>
+
+        <hr className="my-20 mx-auto border-primary" style={{ width: '90%' }} />
 
         {/* Sección Experiencia */}
         <section id="experience" className="py-20 bg-secondary">
@@ -473,6 +481,7 @@ const Portfolio = () => {
             </div>
           </div>
         </section>
+        <ScrollButton />
       </main>
     </div>
   );

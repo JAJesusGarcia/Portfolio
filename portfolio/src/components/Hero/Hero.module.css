@@ -1,0 +1,29 @@
+.hero-background {
+  background-image: url('../../../public/imge/backgound.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .hero-background {
+    background-size: contain;
+    background-attachment: scroll;
+    height: 50vh; /* Opcional: ajusta la altura en pantallas pequeñas */
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideInLeft 1s ease-out forwards;
+}
