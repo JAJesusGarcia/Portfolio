@@ -1,0 +1,12 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  transition: transform 0.3s ease; /* Para un efecto de deslizamiento */
+}
+
+.navbar.hidden {
+  transform: translateY(-100%); /* Oculta el Navbar moviéndolo hacia arriba */
+}

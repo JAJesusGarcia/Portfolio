@@ -86,7 +86,7 @@ const Portfolio = () => {
     <div className="min-h-screen bg-secondary">
       <Navbar />
       <main>
-        <section>
+        <section id="hero">
           <Hero />
         </section>
         {/* Sección About */}
