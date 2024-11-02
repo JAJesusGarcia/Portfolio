@@ -103,7 +103,7 @@ const Portfolio = () => {
                 priority
               />
               <div className="text-quinary">
-                <p className="text-lg mb-4">
+                <p className="text-xl mb-4">
                   Soy un desarrollador web apasionado por crear soluciones
                   innovadoras y experiencias digitales únicas. Con experiencia
                   en tecnologías modernas como React, Next.js y Tailwind CSS, me
@@ -271,12 +271,12 @@ const Portfolio = () => {
         </section>
 
         {/* Sección Proyectos Mejorada */}
-        <section id="projects" className="py-20 bg-quinary/50">
+        <section id="projects" className="py-20 bg-quinary/10">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4 text-center">
+            <h2 className="text-4xl font-bold text-primary mb-12 text-center">
               Mis Proyectos
             </h2>
-            <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-quinary text-xl text-center mb-12 max-w-2xl mx-auto">
               Una selección de mis trabajos más recientes en desarrollo web y
               aplicaciones
             </p>
