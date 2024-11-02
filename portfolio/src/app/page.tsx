@@ -10,8 +10,7 @@ import {
   Github,
   Send,
   MapPin,
-  MessageCircle,
-  MessageCircleCode,
+  MessageCircleMore,
 } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import Navbar from '@/components/Navbar/Navbar';
@@ -50,10 +49,34 @@ const Portfolio = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Formulario enviado:', formData);
-    // Aquí iría la lógica para enviar el formulario
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario');
+      }
+
+      console.log('Formulario enviado con éxito');
+      alert('Mensaje enviado exitosamente');
+
+      // Limpia el formulario después de enviarlo
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      alert('Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
+    }
   };
 
   return (
@@ -86,6 +109,154 @@ const Portfolio = () => {
                   buscando nuevos desafíos y oportunidades para crecer
                   profesionalmente.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Sección Experiencia */}
+        <section id="experience" className="py-20 bg-secondary">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-primary mb-16 text-center">
+              Mi Trayectoria Profesional
+            </h2>
+
+            <div className="relative">
+              {/* Línea vertical central */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
+
+              {/* Teaching Assistant */}
+              <div className="mb-16 group">
+                <div className="relative flex items-center">
+                  {/* Círculo en la línea de tiempo */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+
+                  {/* Contenido */}
+                  <div className="w-1/2 pr-16 text-right hover:-translate-x-3 transition-transform duration-300 opacity-70 group-hover:opacity-100">
+                    <span className="text-primary font-medium inline-block mb-2 border border-primary px-4 py-1 rounded-full text-sm">
+                      Agosto 2024 - Actualidad
+                    </span>
+                  </div>
+
+                  <div className="w-1/2 pl-16 hover:translate-x-3 transition-transform duration-300">
+                    <div className="bg-quaternary p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-primary transform hover:-rotate-1">
+                      <h3 className="text-2xl font-bold text-primary mb-2">
+                        Teaching Assistant
+                      </h3>
+                      <p className="text-tertiary font-medium mb-4">
+                        Henry Bootcamp
+                      </p>
+                      <ul className="text-quinary space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>
+                            Coordinar grupos de estudiantes para su adaptación
+                            al programa
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>
+                            Orientación y resolución de inquietudes en primeras
+                            etapas
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>
+                            Facilitación de Pair Programming y resolución de
+                            ejercicios
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Mejora continua de procesos del Bootcamp</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desarrollador de herramientas */}
+              <div className="mb-16 group">
+                <div className="relative flex items-center">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+
+                  <div className="w-1/2 pr-16 text-right">
+                    <div className="bg-quaternary p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-r-4 border-primary transform hover:rotate-1">
+                      <h3 className="text-2xl font-bold text-primary mb-2">
+                        Desarrollador de herramientas
+                      </h3>
+                      <p className="text-tertiary font-medium mb-4">
+                        netepscript
+                      </p>
+                      <ul className="text-quinary space-y-2">
+                        <li className="flex items-start gap-2 justify-end">
+                          <span>
+                            Creación de herramienta de configuración
+                            automatizada
+                          </span>
+                          <span className="text-primary mt-1">•</span>
+                        </li>
+                        <li className="flex items-start gap-2 justify-end">
+                          <span>
+                            Integración de ExpressJS, NodeJS y TypeScript
+                          </span>
+                          <span className="text-primary mt-1">•</span>
+                        </li>
+                        <li className="flex items-start gap-2 justify-end">
+                          <span>Optimización de tiempos de configuración</span>
+                          <span className="text-primary mt-1">•</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="w-1/2 pl-16 hover:translate-x-3 transition-transform duration-300 opacity-70 group-hover:opacity-100">
+                    <span className="text-primary font-medium inline-block mb-2 border border-primary px-4 py-1 rounded-full text-sm">
+                      Proyecto Personal
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Auxiliar de logística */}
+              <div className="mb-16 group">
+                <div className="relative flex items-center">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+
+                  <div className="w-1/2 pr-16 text-right hover:-translate-x-3 transition-transform duration-300 opacity-70 group-hover:opacity-100">
+                    <span className="text-primary font-medium inline-block mb-2 border border-primary px-4 py-1 rounded-full text-sm">
+                      Abril 2023 - Actualidad
+                    </span>
+                  </div>
+
+                  <div className="w-1/2 pl-16">
+                    <div className="bg-quaternary p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-primary transform hover:-rotate-1">
+                      <h3 className="text-2xl font-bold text-primary mb-2">
+                        Auxiliar de logística
+                      </h3>
+                      <p className="text-tertiary font-medium mb-4">
+                        Bitao - Santini
+                      </p>
+                      <ul className="text-quinary space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Gestión de recepción de mercadería</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Control de almacenamiento e inventario</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>Mantenimiento de instalaciones</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -204,7 +375,7 @@ const Portfolio = () => {
                       type="text"
                       name="name"
                       placeholder="Nombre"
-                      className="w-full p-3 rounded bg-quaternary text-quinary"
+                      className="w-full p-3 rounded bg-quaternary text-quinary focus:outline-none"
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -262,32 +433,40 @@ const Portfolio = () => {
                 <h3 className="text-2xl text-primary mb-4">Redes Sociales</h3>
                 <div className="flex gap-4">
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/jesusjagarcia/"
                     className="text-tertiary hover:text-primary transition-colors"
                     aria-label="LinkedIn"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Linkedin size={32} />
                   </a>
                   <a
-                    href="#"
+                    href="https://github.com/JAJesusGarcia"
                     className="text-tertiary hover:text-primary transition-colors"
                     aria-label="GitHub"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Github size={32} />
                   </a>
                   <a
-                    href="mailto:tu@email.com"
+                    href="mailto:jesusjagarcia98@gmail.com"
                     className="text-tertiary hover:text-primary transition-colors"
                     aria-label="Email"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Mail size={32} />
                   </a>
                   <a
-                    href="mailto:tu@email.com"
+                    href="https://wa.me/3416153479"
                     className="text-tertiary hover:text-primary transition-colors"
-                    aria-label="Email"
+                    aria-label="WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <MessageCircleCode size={32} />
+                    <MessageCircleMore size={32} />
                   </a>
                 </div>
               </div>

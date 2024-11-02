@@ -7,6 +7,9 @@ const Navbar = () => {
           <a href="#about" className="text-quinary hover:text-primary">
             About
           </a>
+          <a href="#experiencie" className="text-quinary hover:text-primary">
+            Experiencia
+          </a>
           <a href="#projects" className="text-quinary hover:text-primary">
             Proyectos
           </a>
