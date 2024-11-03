@@ -55,17 +55,26 @@ const Portfolio = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Validar que formData tenga la información necesaria
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
+
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+      // Verifica que la URL de la API esté configurada
+      if (!process.env.NEXT_PUBLIC_API_URL) {
+        throw new Error("La URL de la API no está configurada");
+      }
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify(formData),
+      });
 
       if (!response.ok) {
         throw new Error("Error al enviar el formulario");

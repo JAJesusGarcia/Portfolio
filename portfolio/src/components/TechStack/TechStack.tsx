@@ -153,7 +153,7 @@ const TechStack = () => {
           onClick={() => setSelectedSkill(isSelected ? null : skill)}
         >
           <div
-            className={`rounded-xl p-4 backdrop-blur-md ${isSelected ? "bg-opacity/20 bg-white" : "bg-opacity/10 bg-white"} flex flex-col items-center space-y-2 transition-all duration-300 hover:shadow-lg`}
+            className={`rounded-xl p-4 backdrop-blur-md ${isSelected ? "bg-opacity/20 bg-white" : "bg-opacity/10 bg-white/10"} flex flex-col items-center space-y-2 transition-all duration-300 hover:shadow-lg`}
           >
             <Icon className="size-20" style={{ color: skill.color }} />
             <span className="whitespace-nowrap text-sm font-medium text-white">
