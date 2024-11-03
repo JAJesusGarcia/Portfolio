@@ -2,25 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply flex min-h-[100vh] flex-col bg-quaternary text-tertiary;
 }
 
-input:focus,
-textarea:focus {
+footer {
+  @apply mt-auto;
+}
+
+.container {
+  @apply mx-auto my-0 max-w-screen-xl px-6 py-0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+input {
+  border: none;
   outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+input::placeholder {
+  color: #a0a0a0; /* Placeholder más claro */
+}
+
+input:focus::placeholder {
+  opacity: 0.6; /* Reduce la opacidad del placeholder cuando el campo está enfocado */
 }
