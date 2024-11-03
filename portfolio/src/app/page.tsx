@@ -23,6 +23,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Experience from "@/components/Experience/Experiencie";
 import ExperienceMobile from "@/components/Experience/ExperienceMobile";
+import Footer from "@/components/Footer/Footer";
 
 const MySwal = withReactContent(Swal);
 
@@ -404,6 +405,7 @@ const Portfolio = () => {
         </section>
         <ScrollButton />
       </main>
+      <Footer />
     </div>
   );
 };
