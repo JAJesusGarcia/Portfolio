@@ -99,7 +99,7 @@ const Portfolio = () => {
             <h2 className="mb-8 text-4xl font-bold text-primary">Sobre Mí</h2>
             <div className="grid items-center gap-8 md:grid-cols-2">
               <Image
-                src="https://scontent-eze1-1.xx.fbcdn.net/v/t39.30808-6/397476874_2605561982933524_3092439653296046069_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=mr7-OMXNBWAQ7kNvgGyqvJM&_nc_zt=23&_nc_ht=scontent-eze1-1.xx&_nc_gid=AKOOiL2uxQ2SHVOmY6dOlNW&oh=00_AYBuKjeHtkiApNWutHzWIbskRn_yNvQbJai4JnIdWGCANg&oe=6725EDD9"
+                src="https://scontent-eze1-1.xx.fbcdn.net/v/t39.30808-6/397476874_2605561982933524_3092439653296046069_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH__xlllIuObrnCq6N-C9OTJ6VkCnRoPoknpWQKdGg-iXVfBGb0RfKJKqsU2Ks2A6pT1BnFwQVJxkena_jispCN&_nc_ohc=u3KIlWJy2joQ7kNvgGOFtLY&_nc_zt=23&_nc_ht=scontent-eze1-1.xx&_nc_gid=AhZdtf0ww9ue3vc0LSdHB61&oh=00_AYCZL1VxXjSQj6-xyhnQL-A-_kPunKdjdTOYbMmr_W7NKA&oe=672D6659"
                 alt="Perfil"
                 width={300}
                 height={300}
