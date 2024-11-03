@@ -24,6 +24,7 @@ import withReactContent from "sweetalert2-react-content";
 import Experience from "@/components/Experience/Experiencie";
 import ExperienceMobile from "@/components/Experience/ExperienceMobile";
 import Footer from "@/components/Footer/Footer";
+import TechStack2 from "@/components/TechStack/TechStack2";
 
 const MySwal = withReactContent(Swal);
 
@@ -283,7 +284,8 @@ const Portfolio = () => {
         </section>
 
         <section>
-          <TechStack />
+          {/* <TechStack /> */}
+          <TechStack2 />
         </section>
 
         {/* Sección Contacto */}

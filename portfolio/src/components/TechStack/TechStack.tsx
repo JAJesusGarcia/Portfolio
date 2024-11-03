@@ -6,11 +6,15 @@ import {
   Server,
   FileCode,
   Database,
-  Cpu,
   Brackets,
   Rocket,
   Box,
-  LucideIcon,
+  Container,
+  TestTube,
+  GitBranch,
+  Palette,
+  Table,
+  type LucideIcon,
 } from "lucide-react";
 
 interface Skill {
@@ -71,15 +75,6 @@ const TechStack = () => {
       experience: "3 años",
       description: "Diseño de esquemas y consultas complejas",
     },
-    // {
-    //   name: 'Python',
-    //   icon: Cpu,
-    //   color: '#3776AB',
-    //   category: 'Lenguaje',
-    //   level: 'Intermedio',
-    //   experience: '2 años',
-    //   description: 'Automatización y análisis de datos',
-    // },
     {
       name: "JavaScript",
       icon: Brackets,
@@ -107,6 +102,52 @@ const TechStack = () => {
       experience: "3 años",
       description: "Gestión de estado global",
     },
+    // Nuevas tecnologías
+    {
+      name: "Docker",
+      icon: Container,
+      color: "#2496ED",
+      category: "DevOps",
+      level: "Intermedio",
+      experience: "2 años",
+      description: "Containerización y despliegue de aplicaciones",
+    },
+    {
+      name: "Testing",
+      icon: TestTube,
+      color: "#C21325",
+      category: "Calidad",
+      level: "Avanzado",
+      experience: "3 años",
+      description: "Jest, Jasmine, pruebas unitarias y de integración",
+    },
+    {
+      name: "Git",
+      icon: GitBranch,
+      color: "#F05032",
+      category: "DevOps",
+      level: "Avanzado",
+      experience: "4 años",
+      description: "Control de versiones, flujos de trabajo colaborativos",
+    },
+    {
+      name: "CSS",
+      icon: Palette,
+      color: "#1572B6",
+      category: "Frontend",
+      level: "Avanzado",
+      experience: "4 años",
+      description: "Tailwind, Bootstrap, CSS moderno y responsive",
+    },
+    {
+      name: "PostgreSQL",
+      icon: Table,
+      color: "#336791",
+      category: "Base de Datos",
+      level: "Intermedio",
+      experience: "2 años",
+      description: "Diseño de bases relacionales y consultas SQL",
+    },
   ];
 
   useEffect(() => {
@@ -123,7 +164,7 @@ const TechStack = () => {
 
   const calculatePosition = (index: number, total: number) => {
     const angle = (index * (360 / total) + rotation) * (Math.PI / 180);
-    const radius = 180;
+    const radius = 200; // Aumentado para dar más espacio
     const x = Math.cos(angle) * radius;
     const y = Math.sin(angle) * radius;
     const scale = (Math.sin(angle) + 2) / 2.5;
@@ -138,7 +179,7 @@ const TechStack = () => {
 
     return (
       <div
-        className={`absolute transition-all duration-300${
+        className={`absolute transition-all duration-300 ${
           isSelected ? "z-50" : ""
         }`}
         style={{
@@ -153,9 +194,11 @@ const TechStack = () => {
           onClick={() => setSelectedSkill(isSelected ? null : skill)}
         >
           <div
-            className={`rounded-xl p-4 backdrop-blur-md ${isSelected ? "bg-opacity/20 bg-white" : "bg-opacity/10 bg-white/10"} flex flex-col items-center space-y-2 transition-all duration-300 hover:shadow-lg`}
+            className={`rounded-xl p-4 backdrop-blur-md ${
+              isSelected ? "bg-white/20" : "bg-white/10"
+            } flex flex-col items-center space-y-2 transition-all duration-300 hover:shadow-lg`}
           >
-            <Icon className="size-20" style={{ color: skill.color }} />
+            <Icon className="size-16" style={{ color: skill.color }} />
             <span className="whitespace-nowrap text-sm font-medium text-white">
               {skill.name}
             </span>
@@ -166,17 +209,8 @@ const TechStack = () => {
   };
 
   return (
-    // <div className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
-    //   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.2),transparent_70%)]" />
     <div className="relative mt-20 flex h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.2),transparent_50%)]" />
-
-      {/* <button
-        className="absolute top-4 right-4 px-4 py-2 bg-white bg-opacity-10 rounded-lg text-white text-sm hover:bg-opacity-20 transition-all"
-        onClick={() => setAutoRotate(!autoRotate)}
-      >
-        {autoRotate ? '⏸ Pausar' : '▶️ Rotar'}
-      </button> */}
 
       <div className="relative flex size-full items-center justify-center">
         {skills.map((skill, index) => (
@@ -190,7 +224,7 @@ const TechStack = () => {
       </div>
 
       {selectedSkill && (
-        <div className="bg-opacity/10 absolute bottom-8 left-1/2 w-full max-w-md -translate-x-1/2 rounded-xl bg-white p-6 text-white backdrop-blur-md transition-all duration-300">
+        <div className="absolute bottom-8 left-1/2 w-full max-w-md -translate-x-1/2 rounded-xl bg-white/10 p-6 text-white backdrop-blur-md transition-all duration-300">
           <div className="mb-4 flex items-center space-x-4">
             <selectedSkill.icon
               className="size-10"
