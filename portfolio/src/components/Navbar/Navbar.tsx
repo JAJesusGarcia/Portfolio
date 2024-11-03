@@ -1,61 +1,102 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 
-const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(true);
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+const navItems: NavItem[] = [
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Sobre Mí', href: '#about' },
+  { label: 'Experiencia', href: '#experience' },
+  { label: 'Proyectos', href: '#projects' },
+  { label: 'Contacto', href: '#contact' },
+];
+
+const Navbar: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const heroSection = document.getElementById('hero');
-    const aboutSection = document.getElementById('about');
-
-    // Callback para manejar la intersección, con tipo de parámetro específico
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.target.id === 'hero') {
-          setIsVisible(entry.isIntersecting);
-        } else if (entry.target.id === 'about' && entry.isIntersecting) {
-          setIsVisible(false);
-        }
-      });
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsNavbarVisible(lastScrollY > currentScrollY || currentScrollY < 100);
+      setLastScrollY(currentScrollY);
     };
 
-    // Crear el IntersectionObserver
-    const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.1,
-    });
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
-    // Observar las secciones 'hero' y 'about'
-    if (heroSection) observer.observe(heroSection);
-    if (aboutSection) observer.observe(aboutSection);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-    // Limpiar el observer al desmontar el componente
-    return () => observer.disconnect();
-  }, []);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav
       className={`${styles.navbar} ${
-        !isVisible ? styles.hidden : ''
-      } bg-quaternary p-4`}
+        !isNavbarVisible ? styles.hidden : ''
+      } bg-secondary/80 backdrop-blur-md`}
     >
-      {/* <nav className="bg-quaternary p-4"> */}
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-primary/80 text-2xl font-bold">My Portfolio</h1>
-        <div className="space-x-6">
-          <a href="#about" className="text-quinary hover:text-primary">
-            About
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <a href="#" className="text-2xl font-bold text-primary">
+            Portfolio
           </a>
-          <a href="#experience" className="text-quinary hover:text-primary">
-            Experience
-          </a>
-          <a href="#projects" className="text-quinary hover:text-primary">
-            Projects
-          </a>
-          <a href="#contact" className="text-quinary hover:text-primary">
-            Contact
-          </a>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-tertiary hover:text-primary transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Hamburger Menu Button */}
+          <button
+            className="md:hidden text-primary p-2 hover:bg-quaternary/10 rounded-lg transition-colors"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen
+              ? 'max-h-screen opacity-100 visible'
+              : 'max-h-0 opacity-0 invisible'
+          }`}
+        >
+          <div className="py-4 space-y-4 bg-secondary/80 backdrop-blur-md">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="block px-4 py-2 text-tertiary hover:text-primary hover:bg-quaternary/10 transition-colors"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
