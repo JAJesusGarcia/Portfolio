@@ -19,6 +19,35 @@ import ScrollButton from "@/components/ScrollButton/ScrollButton";
 import "./globals.css";
 import Hero from "@/components/Hero/Hero";
 import TechStack from "@/components/TechStack/TechStack";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
+const showAlert = (
+  message: string | React.ReactNode,
+  icon: "success" | "error" | "warning" | "info",
+  callback?: () => void,
+) => {
+  MySwal.fire({
+    html: <p>{message}</p>,
+    icon: icon,
+    toast: true,
+    position: "top",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+    willClose: () => {
+      if (callback) {
+        callback();
+      }
+    },
+  });
+};
 
 interface Project {
   title: string;
@@ -58,7 +87,7 @@ const Portfolio = () => {
 
     // Validar que formData tenga la información necesaria
     if (!formData.name || !formData.email || !formData.message) {
-      alert("Por favor, completa todos los campos.");
+      showAlert("Por favor completa todos los campos", "error");
       return;
     }
 
@@ -81,7 +110,7 @@ const Portfolio = () => {
       }
 
       console.log("Formulario enviado con éxito");
-      alert("Mensaje enviado exitosamente");
+      showAlert("Mensaje enviado exitosamente", "success");
 
       // Limpia el formulario después de enviarlo
       setFormData({
@@ -91,7 +120,10 @@ const Portfolio = () => {
       });
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
-      alert("Hubo un problema al enviar el mensaje. Inténtalo de nuevo.");
+      showAlert(
+        "Hubo un problema al enviar el mensaje. Inténtalo de nuevo",
+        "error",
+      );
     }
   };
 
