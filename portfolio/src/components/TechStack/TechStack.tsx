@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Code2,
   Server,
@@ -11,7 +11,7 @@ import {
   Rocket,
   Box,
   LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface Skill {
   name: string;
@@ -36,40 +36,40 @@ const TechStack = () => {
 
   const skills: Skill[] = [
     {
-      name: 'React',
+      name: "React",
       icon: Code2,
-      color: '#61DAFB',
-      category: 'Frontend',
-      level: 'Avanzado',
-      experience: '4 años',
-      description: 'Desarrollo de aplicaciones SPA complejas',
+      color: "#61DAFB",
+      category: "Frontend",
+      level: "Avanzado",
+      experience: "4 años",
+      description: "Desarrollo de aplicaciones SPA complejas",
     },
     {
-      name: 'Node.js',
+      name: "Node.js",
       icon: Server,
-      color: '#339933',
-      category: 'Backend',
-      level: 'Avanzado',
-      experience: '3 años',
-      description: 'APIs RESTful y microservicios',
+      color: "#339933",
+      category: "Backend",
+      level: "Avanzado",
+      experience: "3 años",
+      description: "APIs RESTful y microservicios",
     },
     {
-      name: 'TypeScript',
+      name: "TypeScript",
       icon: FileCode,
-      color: '#3178C6',
-      category: 'Lenguaje',
-      level: 'Intermedio',
-      experience: '2 años',
-      description: 'Desarrollo tipado y seguro',
+      color: "#3178C6",
+      category: "Lenguaje",
+      level: "Intermedio",
+      experience: "2 años",
+      description: "Desarrollo tipado y seguro",
     },
     {
-      name: 'MongoDB',
+      name: "MongoDB",
       icon: Database,
-      color: '#47A248',
-      category: 'Base de Datos',
-      level: 'Avanzado',
-      experience: '3 años',
-      description: 'Diseño de esquemas y consultas complejas',
+      color: "#47A248",
+      category: "Base de Datos",
+      level: "Avanzado",
+      experience: "3 años",
+      description: "Diseño de esquemas y consultas complejas",
     },
     // {
     //   name: 'Python',
@@ -81,31 +81,31 @@ const TechStack = () => {
     //   description: 'Automatización y análisis de datos',
     // },
     {
-      name: 'JavaScript',
+      name: "JavaScript",
       icon: Brackets,
-      color: '#F7DF1E',
-      category: 'Lenguaje',
-      level: 'Experto',
-      experience: '5 años',
-      description: 'ES6+, Async/Await, Promises',
+      color: "#F7DF1E",
+      category: "Lenguaje",
+      level: "Experto",
+      experience: "5 años",
+      description: "ES6+, Async/Await, Promises",
     },
     {
-      name: 'Next.js',
+      name: "Next.js",
       icon: Rocket,
-      color: '#000000',
-      category: 'Frontend',
-      level: 'Avanzado',
-      experience: '2 años',
-      description: 'SSR y aplicaciones fullstack',
+      color: "#000000",
+      category: "Frontend",
+      level: "Avanzado",
+      experience: "2 años",
+      description: "SSR y aplicaciones fullstack",
     },
     {
-      name: 'Redux',
+      name: "Redux",
       icon: Box,
-      color: '#764ABC',
-      category: 'Frontend',
-      level: 'Avanzado',
-      experience: '3 años',
-      description: 'Gestión de estado global',
+      color: "#764ABC",
+      category: "Frontend",
+      level: "Avanzado",
+      experience: "3 años",
+      description: "Gestión de estado global",
     },
   ];
 
@@ -138,8 +138,8 @@ const TechStack = () => {
 
     return (
       <div
-        className={`absolute transform transition-all duration-300 ${
-          isSelected ? 'z-50' : ''
+        className={`absolute transition-all duration-300${
+          isSelected ? "z-50" : ""
         }`}
         style={{
           left: `calc(50% + ${x}px)`,
@@ -149,19 +149,14 @@ const TechStack = () => {
         }}
       >
         <div
-          className="cursor-pointer hover:scale-110 transition-transform duration-300"
+          className="cursor-pointer transition-transform duration-300 hover:scale-110"
           onClick={() => setSelectedSkill(isSelected ? null : skill)}
         >
           <div
-            className={`
-            p-4 rounded-xl backdrop-blur-md
-            ${isSelected ? 'bg-white bg-opacity-20' : 'bg-white bg-opacity-10'}
-            transition-all duration-300 hover:shadow-lg
-            flex flex-col items-center space-y-2
-          `}
+            className={`rounded-xl p-4 backdrop-blur-md ${isSelected ? "bg-opacity/20 bg-white" : "bg-opacity/10 bg-white"} flex flex-col items-center space-y-2 transition-all duration-300 hover:shadow-lg`}
           >
-            <Icon className="w-20 h-20" style={{ color: skill.color }} />
-            <span className="text-white font-medium text-sm whitespace-nowrap">
+            <Icon className="size-20" style={{ color: skill.color }} />
+            <span className="whitespace-nowrap text-sm font-medium text-white">
               {skill.name}
             </span>
           </div>
@@ -173,7 +168,7 @@ const TechStack = () => {
   return (
     // <div className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
     //   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.2),transparent_70%)]" />
-    <div className="relative mt-20 h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br">
+    <div className="relative mt-20 flex h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.2),transparent_50%)]" />
 
       {/* <button
@@ -183,7 +178,7 @@ const TechStack = () => {
         {autoRotate ? '⏸ Pausar' : '▶️ Rotar'}
       </button> */}
 
-      <div className="relative w-full h-full flex items-center justify-center">
+      <div className="relative flex size-full items-center justify-center">
         {skills.map((skill, index) => (
           <SkillCard
             key={skill.name}
@@ -195,10 +190,10 @@ const TechStack = () => {
       </div>
 
       {selectedSkill && (
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 text-white transition-all duration-300">
-          <div className="flex items-center space-x-4 mb-4">
+        <div className="bg-opacity/10 absolute bottom-8 left-1/2 w-full max-w-md -translate-x-1/2 rounded-xl bg-white p-6 text-white backdrop-blur-md transition-all duration-300">
+          <div className="mb-4 flex items-center space-x-4">
             <selectedSkill.icon
-              className="w-10 h-10"
+              className="size-10"
               style={{ color: selectedSkill.color }}
             />
             <div>
@@ -206,7 +201,7 @@ const TechStack = () => {
               <p className="text-sm opacity-80">{selectedSkill.category}</p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="mb-4 grid grid-cols-2 gap-4">
             <div>
               <p className="text-sm opacity-70">Nivel</p>
               <p className="font-medium">{selectedSkill.level}</p>

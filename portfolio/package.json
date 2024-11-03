@@ -6,24 +6,36 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "refrescar": "rm -rf .next && npm run build && npx prettier --write ."
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.454.0",
     "next": "^13.4.19",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "@types/node": "^20.5.7",
-    "@types/react": "^18.2.21",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/webpack": "^5.28.5",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.13",
+    "eslint-plugin-tailwindcss": "^3.17.4",
+    "next": "^14.2.13",
     "postcss": "^8",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.2.2"
+    "typescript": "~5.5.0"
   }
 }
