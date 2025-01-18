@@ -1,6 +1,7 @@
 import style from "./Hero.module.css";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Github } from "lucide-react";
 import { useState, useEffect } from "react";
+import AnimatedCounter from "../counted/animatedCounted";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -27,6 +28,14 @@ const Hero = () => {
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
+        <div className="mt-8 flex items-center justify-center gap-4 text-2xl font-semibold text-primary">
+          <Github size={32} className="text-primary" />
+          <AnimatedCounter targetNumber={990} />
+          <span className="ml-2 text-quinary">
+            Contributions in the last year
+          </span>
+        </div>
+        <br />
         <span className="mb-2 animate-pulse text-sm text-white/70">
           Scroll down
         </span>
