@@ -25,6 +25,7 @@ import Experience from "@/components/Experience/Experiencie";
 import ExperienceMobile from "@/components/Experience/ExperienceMobile";
 import Footer from "@/components/Footer/Footer";
 import TechStack2 from "@/components/TechStack/TechStack2";
+import AnimatedCounter from "@/components/counted/animatedCounted";
 
 const MySwal = withReactContent(Swal);
 
@@ -179,6 +180,16 @@ const Portfolio = () => {
                   buscando nuevos desafíos y oportunidades para crecer
                   profesionalmente.
                 </p>
+                <br />
+                <br />
+                <br />
+                <div className="mt-8 flex items-center justify-center gap-4 text-2xl font-semibold text-primary">
+                  <Github size={32} className="text-primary" />
+                  <AnimatedCounter targetNumber={990} />
+                  <span className="ml-2 text-quinary">
+                    Contributions in the last year
+                  </span>
+                </div>
               </div>
             </div>
           </div>
