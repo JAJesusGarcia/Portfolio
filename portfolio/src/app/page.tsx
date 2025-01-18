@@ -215,7 +215,9 @@ const Portfolio = () => {
               {projects.map((project: Project, index: number) => (
                 <div
                   key={index}
-                  className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl" // Added flex-col and h-full
+                  className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div className="relative aspect-video">
                     <Image
@@ -225,36 +227,34 @@ const Portfolio = () => {
                       objectFit="cover"
                       className="transition-transform duration-300 hover:scale-105"
                     />
-                    {hoveredIndex === index && (
-                      <div className="bg-opacity/60 absolute inset-0 flex items-center justify-center space-x-4 bg-black transition-opacity duration-300">
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-full bg-white p-2 transition-colors hover:bg-gray-100"
-                          title="Ver demo"
-                        >
-                          <Monitor className="size-6 text-gray-800" />
-                        </a>
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-full bg-white p-2 transition-colors hover:bg-gray-100"
-                          title="Ver código"
-                        >
-                          <Github className="size-6 text-gray-800" />
-                        </a>
-                      </div>
-                    )}
+                    <div
+                      className={`absolute inset-0 flex items-center justify-center space-x-4 bg-black/60 transition-opacity duration-300 ${
+                        hoveredIndex === index ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full bg-white p-2 transition-colors hover:bg-gray-100"
+                        title="Ver demo"
+                      >
+                        <Monitor className="size-6 text-gray-800" />
+                      </a>
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full bg-white p-2 transition-colors hover:bg-gray-100"
+                        title="Ver código"
+                      >
+                        <Github className="size-6 text-gray-800" />
+                      </a>
+                    </div>
                   </div>
 
                   <div className="flex grow flex-col p-6">
-                    {" "}
-                    {/* Added flex-col and flex-grow */}
                     <div className="grow">
-                      {" "}
-                      {/* Added wrapper div with flex-grow */}
                       <h3 className="mb-2 text-xl font-bold text-gray-800">
                         {project.title}
                       </h3>
@@ -262,8 +262,6 @@ const Portfolio = () => {
                         {project.description}
                       </p>
                       <div className="mb-4 mt-auto flex flex-wrap gap-2">
-                        {" "}
-                        {/* Added wrapper div with mt-auto */}
                         {project.technologies.map((tech, techIndex) => (
                           <span
                             key={techIndex}
@@ -275,8 +273,6 @@ const Portfolio = () => {
                       </div>
                     </div>
                     <div className="mt-auto">
-                      {" "}
-                      {/* Added wrapper div with mt-auto */}
                       <a
                         href={project.url}
                         target="_blank"
