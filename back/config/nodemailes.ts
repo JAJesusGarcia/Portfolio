@@ -11,6 +11,7 @@ export const transporter = nodemailer.createTransport({
 export const mailOptions = (name: string, email: string, message: string) => ({
   from: process.env.EMAIL_USER,
   to: process.env.EMAIL_RECEIVER,
+  replyTo: email,
   subjet: `Nuevo mensaje de ${name}`,
   html: `<p><strong>Nombre:</strong> ${name}</p>
          <p><strong>Email:</strong> ${email}</p>
