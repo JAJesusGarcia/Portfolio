@@ -5,7 +5,7 @@ export const projects = [
       "Plataforma E-commerce, con consignas en base a la rama de especialización (FrontEnd)",
     image: "/imge/m4.png",
     url: "https://yisus-shop.vercel.app/",
-    githubUrl: "https://github.com/jajesusgarcia/yisus-shop",
+    githubUrl: "https://github.com/JAJesusGarcia/YisusShop",
     technologies: [
       "Next.js",
       "React",
@@ -30,8 +30,8 @@ export const projects = [
     description:
       "Este script instala Node, Express, TypeScript, ESLint y Prettier automáticamente. La idea detrás de este script es ejecutar todas las instalaciones de dependencias y configuraciones de entorno con un solo comando, agilizando la configuración del proyecto desde cero.",
     image: "/imge/netep.png",
-    url: "https://alefuocoeventos.com/",
-    githubUrl: "https://github.com/Synergy2Devs/website",
+    url: "https://www.npmjs.com/package/netepscript",
+    githubUrl: "https://github.com/Synergy2Devs/netepScript",
     technologies: ["Bash", "NPM"],
   },
   {
@@ -49,7 +49,7 @@ export const projects = [
       "Sistema de gestión de Turnos para los clientes de un servicio... Termina de conformar el Stack base del perfil de un Full Stack",
     image: "/imge/m3.png",
     url: "https://synergy2-devs.vercel.app/home",
-    githubUrl: "https://github.com/jajesusgarcia/turnos-app",
+    githubUrl: "https://github.com/JAJesusGarcia/Synergy2Devs",
     technologies: [
       "React",
       "Express",
