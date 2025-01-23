@@ -160,7 +160,7 @@ const Portfolio = () => {
             <h2 className="mb-8 text-4xl font-bold text-primary">Sobre Mí</h2>
             <div className="grid items-center gap-8 md:grid-cols-2">
               <Image
-                src="/imge/profilePhoto.jpg"
+                src="/imge/profilePhoto.webp"
                 alt="Perfil"
                 width={300}
                 height={300}
