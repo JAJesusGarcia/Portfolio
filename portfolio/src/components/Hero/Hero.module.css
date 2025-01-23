@@ -1,5 +1,5 @@
 .hero-background {
-  background-image: url('../../../public/imge/backgound.png');
+  background-image: url("../../../public/imge/backgound.webp");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
