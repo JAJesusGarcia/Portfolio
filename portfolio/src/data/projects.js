@@ -3,7 +3,7 @@ export const projects = [
     title: "Connequity",
     description:
       "Plataforma que conecta empresas con influencers, optimizando la gestión de campañas y maximizando el impacto. Permite a las empresas publicar campañas con un targeting preciso, evaluar perfiles de influencers y gestionar contrataciones. Los influencers pueden postularse a colaboraciones relevantes y construir relaciones profesionales con marcas.",
-    image: "/image/Connequity.png", // <-- Agrega aquí una imagen representativa de Connequity
+    image: "/imge/Connequity.png", // <-- Agrega aquí una imagen representativa de Connequity
     url: "https://connequity.vercel.app/", // <-- Tu URL desplegada
     githubUrl: "[Repositorio Privado]", // <-- Como el repo es privado, lo indicamos así
     technologies: [
