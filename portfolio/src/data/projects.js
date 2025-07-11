@@ -1,5 +1,28 @@
 export const projects = [
   {
+    title: "Connequity",
+    description:
+      "Plataforma que conecta empresas con influencers, optimizando la gestión de campañas y maximizando el impacto. Permite a las empresas publicar campañas con un targeting preciso, evaluar perfiles de influencers y gestionar contrataciones. Los influencers pueden postularse a colaboraciones relevantes y construir relaciones profesionales con marcas.",
+    image: "/image/nosotros.webp", // <-- Agrega aquí una imagen representativa de Connequity
+    url: "https://connequity.vercel.app/", // <-- Tu URL desplegada
+    githubUrl: "[Repositorio Privado]", // <-- Como el repo es privado, lo indicamos así
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "TypeORM",
+      "NextAuth.js",
+      "Zod",
+      "Radix UI",
+      "React Hook Form",
+      "Tailwind CSS",
+      "Full Stack",
+    ],
+  },
+  {
     title: "AI-technical-test",
     description:
       "Este proyecto implementa un frontend avanzado para análisis de imágenes histológicas de cáncer de mama y próstata, utilizando Next.js y React.",
